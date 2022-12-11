@@ -75,7 +75,37 @@
   }
   .section-01 .c-wrapper > .c-item-02 {
     flex: 1;
-    background: yellow;
+  }
+  .section-01 .c-wrapper > .c-item-02 > .c-item-02-A {
+    display: flex;
+    margin-bottom: 48px;
+  }
+  .section-01 .c-wrapper > .c-item-02 > .c-item-02-A .clear-button {
+    display: none;
+    padding: 16px;
+    background-color: #FFF;
+    border: 1px solid red;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+  }
+  .section-01 .c-wrapper > .c-item-02 > .c-item-02-A .clear-button:hover {
+    background-color: #CCC;
+  }
+  .section-01 .c-wrapper > .c-item-02 > .c-item-02-A .clear-button.show {
+    display: flex;
+  }
+  .section-01 .c-wrapper > .c-item-02 > .c-item-02-A .sort-select-container {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+  }
+  .section-01 .c-wrapper > .c-item-02 > .c-item-02-A .sort-select-container .sort-select {
+    padding: 8px;
+    height: 40px;
+  }
+  .section-01 .c-wrapper > .c-item-02 > .c-item-02-A .sort-select-container .sort-select option {
+    padding: 8px;
   }
   .section-01 .c-wrapper > .c-item-02 > .c-item-02-B {
     display: grid;
