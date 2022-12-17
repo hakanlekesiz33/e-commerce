@@ -97,7 +97,8 @@
                             </defs>
                         </svg>
 
-                        <input type="text" placeholder="Ara..." class="search-input" id="search-input">
+                        <input type="text" placeholder="Ara..." onkeyup="Filter.Actions.handleSearch(this);"
+                            class="search-input" id="search-input" />
                     </div>
 
                     <div class="c-item-01-B">
@@ -116,7 +117,8 @@
                                 </defs>
                             </svg>
 
-                            <input type="text" placeholder="Kategori ara..." class="search-input" id="search-input">
+                            <input type="text" placeholder="Kategori ara..." class="search-input" id="search-category-input"
+                                onkeyup="Filter.Actions.handleCategorySearch(this);">
                         </div>
                         <ul id="category-list">
                             <!-- kategori listesi gelecek -->
@@ -145,42 +147,6 @@
                     </div>
 
                     <div class="c-item-02-B" id="product-list">
-                        <!-- ürün listesi -->
-                        <a href="#" class="card-01">
-                            <img class="c-item-01" src="Content/images/home/card.jpg" alt="">
-                            <h5 class="c-item-02">Moonbirds</h5>
-                            <p class="c-item-03">Faucibus odio elementum nulla venenatis, libero. Ullamcorper duis fringilla
-                                pulvinar nibh diam sit.</p>
-    
-                        </a>
-                        <a href="#" class="card-01">
-                            <img class="c-item-01" src="Content/images/home/card.jpg" alt="">
-                            <h5 class="c-item-02">Moonbirds</h5>
-                            <p class="c-item-03">Faucibus odio elementum nulla venenatis, libero. Ullamcorper duis fringilla
-                                pulvinar nibh diam sit.</p>
-    
-                        </a>
-                        <a href="#" class="card-01">
-                            <img class="c-item-01" src="Content/images/home/card.jpg" alt="">
-                            <h5 class="c-item-02">Moonbirds</h5>
-                            <p class="c-item-03">Faucibus odio elementum nulla venenatis, libero. Ullamcorper duis fringilla
-                                pulvinar nibh diam sit.</p>
-    
-                        </a>
-                        <a href="#" class="card-01">
-                            <img class="c-item-01" src="Content/images/home/card.jpg" alt="">
-                            <h5 class="c-item-02">Moonbirds</h5>
-                            <p class="c-item-03">Faucibus odio elementum nulla venenatis, libero. Ullamcorper duis fringilla
-                                pulvinar nibh diam sit.</p>
-    
-                        </a>
-                        <a href="#" class="card-01">
-                            <img class="c-item-01" src="Content/images/home/card.jpg" alt="">
-                            <h5 class="c-item-02">Moonbirds</h5>
-                            <p class="c-item-03">Faucibus odio elementum nulla venenatis, libero. Ullamcorper duis fringilla
-                                pulvinar nibh diam sit.</p>
-    
-                        </a>
 
                     </div>
                 </div>
@@ -196,13 +162,12 @@
             <img class="c-item-01" src="" alt="">
             <h5 class="c-item-02"></h5>
             <p class="c-item-03"></p>
-
         </a>
     </div>
 
     <div id="category-list-item-temp" style="display: none;">
         <li>
-            <input type="checkbox" id="c-1">
+            <input type="checkbox" id="c-1" onchange="Filter.Actions.handleCategoryChange()">
             <label for="c-1">Kategori 1</label>
         </li>
     </div>
