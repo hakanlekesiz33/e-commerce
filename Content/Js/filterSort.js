@@ -8,7 +8,6 @@ var Filter = {
     },
     Status: {
         products: [],
-        query: "",
     },
     Actions: {
         //Sayfa ilk açıldığında istenilen fonksiyonları çalıştrıacak
@@ -16,22 +15,30 @@ var Filter = {
             Filter.Actions.getProducts(Filter.Apis.products); //  get all products
         },
 
-        //search inputuna her yazı yazıldığında bu fonksiyon çalışır
-        handleSearch: (sender) => {
-            Filter.Status.query = sender.value;
-            let apiUrl = "";
-            if (Filter.Status.query) {
-                apiUrl = Filter.Apis.products + "/search?q=" + Filter.Status.query;
+        handleSortChange: (sender) => {
+            debugger
+            var products = Filter.Status.products;
+
+            if (sender.value === "descPrice") {
+                products = products.sort((a, b) => b.price - a.price);
             }
-            else {
-                apiUrl = Filter.Apis.products;
+            else if (sender.value === "ascPrice") {
+                products = products.sort((a, b) => a.price - b.price);
             }
-            Filter.Actions.getProducts(apiUrl);
+            else if (sender.value === "descRate") {
+                products = products.sort((a, b) => b.rating - a.rating);
+            }
+            else if (sender.value === "descDiscount") {
+                products = products.sort((a, b) => b.discountPercentage - a.discountPercentage);
+            }
+
+            //Filter.Status.products = products;
+            Filter.Actions.appendProductsToHtml();
+
         },
 
         //ürün listesini html e ekliyor
         appendProductsToHtml: () => {
-            debugger
             Filter.Elements.productList.innerHTML = "";
             for (let i = 0; i < Filter.Status.products.length; i++) {
                 const product = Filter.Status.products[i];
@@ -44,6 +51,10 @@ var Filter = {
                 div.querySelector("img").setAttribute("alt", product.title);
                 div.querySelector("h5").innerText = product.title;
                 div.querySelector("p").innerText = product.description;
+                div.querySelector("p.price").innerHTML =
+                    "Price: " + product.price + "$<br/>" +
+                    "Rating: " + product.rating + "<br/>" +
+                    "Discount: " + product.discountPercentage + "%";
 
                 Filter.Elements.productList.appendChild(div.querySelector("a"));
 
