@@ -99,11 +99,20 @@
                         <input type="text" placeholder="Ara..." onkeyup="Filter.Actions.handleSearch(this);"
                             class="search-input" id="search-input" />
                     </div>
- 
+
                 </div>
 
                 <div class="c-item-02">
-                     
+                    <!-- sağ taraftaki alan  -->
+                    <div class="c-item-02-A">
+
+                        <button class="clear-button" id="clear-button" onclick="Filter.Actions.clear();">
+                            Filtreleri temizle
+                        </button>
+
+
+                    </div>
+
                     <div class="c-item-02-B" id="product-list">
 
                     </div>
@@ -123,7 +132,7 @@
             <p class="c-item-03"></p>
         </a>
     </div>
- 
+
     <script src="Content/Js/filterSearch.js"></script>
 
 </body>

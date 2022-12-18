@@ -15,27 +15,6 @@ var Filter = {
             Filter.Actions.getProducts(Filter.Apis.products); //  get all products
         },
 
-        handleSortChange: (sender) => {
-            var products = Filter.Status.products;
-
-            if (sender.value === "descPrice") {
-                products = products.sort((a, b) => b.price - a.price);
-            }
-            else if (sender.value === "ascPrice") {
-                products = products.sort((a, b) => a.price - b.price);
-            }
-            else if (sender.value === "descRate") {
-                products = products.sort((a, b) => b.rating - a.rating);
-            }
-            else if (sender.value === "descDiscount") {
-                products = products.sort((a, b) => b.discountPercentage - a.discountPercentage);
-            }
-
-            //Filter.Status.products = products;
-            Filter.Actions.appendProductsToHtml();
-
-        },
-
         //ürün listesini html e ekliyor
         appendProductsToHtml: () => {
             Filter.Elements.productList.innerHTML = "";
@@ -69,6 +48,11 @@ var Filter = {
                     Filter.Actions.appendProductsToHtml();
                 });
         },
+
+        loadMore: () => {
+            debugger
+
+        }
 
     },
 };

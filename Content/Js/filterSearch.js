@@ -5,6 +5,8 @@ var Filter = {
     Elements: {
         productList: document.getElementById("product-list"),
         cardTemp: document.getElementById("card-temp"),
+        clearButton: document.getElementById("clear-button"),
+        searchInput: document.getElementById("search-input")
     },
     Status: {
         products: [],
@@ -18,20 +20,25 @@ var Filter = {
 
         //search inputuna her yazı yazıldığında bu fonksiyon çalışır
         handleSearch: (sender) => {
+            
             Filter.Status.query = sender.value;
             let apiUrl = "";
+
             if (Filter.Status.query) {
                 apiUrl = Filter.Apis.products + "/search?q=" + Filter.Status.query;
+                Filter.Elements.clearButton.classList.add("show");
             }
             else {
                 apiUrl = Filter.Apis.products;
+                Filter.Elements.clearButton.classList.remove("show");
             }
+
             Filter.Actions.getProducts(apiUrl);
         },
 
         //ürün listesini html e ekliyor
         appendProductsToHtml: () => {
-            debugger
+
             Filter.Elements.productList.innerHTML = "";
             for (let i = 0; i < Filter.Status.products.length; i++) {
                 const product = Filter.Status.products[i];
@@ -59,6 +66,11 @@ var Filter = {
                     Filter.Actions.appendProductsToHtml();
                 });
         },
+
+        clear: () => {
+            Filter.Elements.searchInput.value = "";
+            Filter.Actions.handleSearch(Filter.Elements.searchInput);
+        }
 
     },
 };

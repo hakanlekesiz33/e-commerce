@@ -85,30 +85,15 @@
                 </div>
 
                 <div class="c-item-02">
-
-                    <!-- sağ taraftaki alan  -->
-                    <div class="c-item-02-A">
-
-                        <button class="clear-button" id="clear-button" onclick="Filter.Actions.clear();">
-                            Filtreleri temizle
-                        </button>
-
-                        
-                        <div class="sort-select-container">
-                            <select class="sort-select" id="sort-select" onchange="Filter.Actions.handleSortChange(this);">
-
-                                <option value="">Sıralama Seçiniz</option>
-                                <option value="descPrice">Fiyata göre azalan (yüksekten düşüğe)</option>
-                                <option value="ascPrice">Fiyata göre artan (düşükten yükseğe)</option>
-                                <option value="descRate">Puana göre azalan (yüksekten düşüğe)</option>
-                                <option value="descDiscount">İndirime göre azalan (yüksekten düşüğe)</option>
-                            </select>
-                        </div>
-
+ 
+                    <div class="c-item-02-B" id="product-list">
+                    
                     </div>
 
-                    <div class="c-item-02-B" id="product-list">
-
+                    <div class="c-item-02-C">
+                        <button id="load-more-button" onclick="Filter.Actions.loadMore();">   
+                            Daha Fazla Göster
+                        </button>
                     </div>
 
                 </div>
@@ -128,7 +113,7 @@
         </a>
     </div>
 
-    <script src="Content/Js/filterSort.js"></script>
+    <script src="Content/Js/filterPagination.js"></script>
 
 </body>
 
